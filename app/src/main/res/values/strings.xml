@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Spa App</string>
+    <string name="bt4">Log In</string>
+    <string name="et1">Enter Email</string>
+    <string name="et2">Enter Password</string>
+    <string name="tv1">Forgot Password ? ></string>
+    <string name="textView_price">$150</string>
+    <string name="tv7">Deep Tissue</string>
+    <string name="tv_message">Message</string>
+    <string name="tv_des">DESCRIPTION</string>
+    <string name="tv_package">SELECT PACKAGE</string>
+    <string name="tv_duration">DURATION</string>
+    <string name="tv_price">PRICE</string>
+    <string name="tv_60">60 minutes</string>
+    <string name="tv_90">90 minutes</string>
+    <string name="tv_120">120 minutes</string>
+    <string name="tv_$1">$150</string>
+    <string name="tv_$2">$190</string>
+    <string name="tv_$3">$300</string>
+    <string name="button">LETS GET PAMPERED</string>
+    <string name="label">layout_task1</string>
+    <string name="lengthy_msg">An invigorating therapeutic treatment that uses deep pressure and a variety of targeted
+    techniques to promote recovery of strained muscles,relaxation of muscular tension and elimination of toxins.</string>
+</resources>
