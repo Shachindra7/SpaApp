@@ -1,12 +1,9 @@
 package com.example.shachindratripathi.spaapp;
 
 import android.content.res.AssetManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
-
-import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,37 +13,32 @@ import java.io.IOException;
 import java.io.InputStream;
 
 
-
-
 public class MainActivity extends AppCompatActivity {
-
-    Gson gson = 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.json);
         MainActivity m = new MainActivity();
-         readJson(new View(this));
-
+        parseJson(readJson());
 
 
     }
 
 
-    public String readJson(View view) {
+    public String readJson() {
         TextView JSONtextView = (TextView) findViewById(R.id.JSONtextView);
 
 
         AssetManager am = getAssets();
         String text = "";
         try {
-            InputStream is = getAssets().open("spa_dummy.json");
+            InputStream is = getAssets().open("spa_dummy.txt");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
             is.close();
-            text = new String(buffer);
+            text = new String(buffer, "UTF-8");
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -55,8 +47,19 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+//    private void parseJsonData(String s){
+//        try {
+//            JSONObject jsonObject = new JSONObject(s);
+//
+//
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
     private void parseJson(String s) {
-        TextView JSONtextView = (TextView)findViewById(R.id.JSONtextView);
+        TextView JSONtextView = (TextView) findViewById(R.id.JSONtextView);
         StringBuilder builder = new StringBuilder();
         try {
             JSONObject root = new JSONObject(s);
