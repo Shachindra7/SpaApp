@@ -49,11 +49,11 @@ public class CategoryAdapter extends ArrayAdapter<Category> {
             holder = new ViewHolder();
             holder.imageview = (ImageView)convertView.findViewById(R.id.imageView);
             holder.tvcategoryId = (TextView)convertView.findViewById(R.id.tvcategoryId);
-            holder.tvname = (TextView)convertView.findViewById(R.id.tvcityId);
+            holder.tvcityId = (TextView)convertView.findViewById(R.id.tvcityId);
             holder.tvname = (TextView)convertView.findViewById(R.id.tvname);
-            holder.tvname = (TextView)convertView.findViewById(R.id.tvimage);
-            holder.tvname = (TextView)convertView.findViewById(R.id.tvedate);
-            holder.tvname = (TextView)convertView.findViewById(R.id.tvServices);
+            holder.tvimage = (TextView)convertView.findViewById(R.id.tvimage);
+            holder.tvedate = (TextView)convertView.findViewById(R.id.tvedate);
+            holder.tvServices = (TextView)convertView.findViewById(R.id.tvServices);
 
             convertView.setTag(holder); 
 
@@ -63,6 +63,12 @@ public class CategoryAdapter extends ArrayAdapter<Category> {
             holder = (ViewHolder)convertView.getTag();
 
         }
+       holder.tvcategoryId.setText(ArrayListCategory.get(position).getCategory_id());
+       holder.tvcityId.setText(ArrayListCategory.get(position).getCity_id());
+       holder.tvname.setText(ArrayListCategory.get(position).getName());
+       holder.tvimage.setText(ArrayListCategory.get(position).getImage());
+       holder.tvedate.setText(ArrayListCategory.get(position).getEdate());
+
        return convertView ;
     }
 

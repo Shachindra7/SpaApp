@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.json);
+        setContentView(R.layout.category);
         MainActivity m = new MainActivity();
         readJson(new View(this));
         categoryList = new ArrayList<>();
