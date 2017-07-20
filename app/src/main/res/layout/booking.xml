@@ -53,8 +53,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="160dp" />
+        tools:layout_editor_absoluteX="13dp"
+        tools:layout_editor_absoluteY="156dp" />
 
     <EditText
         android:id="@+id/editText7"

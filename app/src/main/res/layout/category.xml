@@ -7,15 +7,15 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvcityId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        tools:layout_editor_absoluteX="91dp"
-        tools:layout_editor_absoluteY="93dp" />
+        tools:layout_editor_absoluteX="98dp"
+        tools:layout_editor_absoluteY="86dp" />
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/tvname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -23,7 +23,7 @@
         tools:layout_editor_absoluteY="184dp" />
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/tvimage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -31,15 +31,15 @@
         tools:layout_editor_absoluteY="271dp" />
 
     <TextView
-        android:id="@+id/textView22"
+        android:id="@+id/tvedate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteX="73dp"
         tools:layout_editor_absoluteY="359dp" />
 
     <TextView
-        android:id="@+id/textView23"
+        android:id="@+id/tvServices"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -47,10 +47,18 @@
         tools:layout_editor_absoluteY="428dp" />
 
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/tvcategoryId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        tools:layout_editor_absoluteX="91dp"
+        tools:layout_editor_absoluteX="98dp"
         tools:layout_editor_absoluteY="31dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@color/colorAccent"
+        tools:layout_editor_absoluteX="232dp"
+        tools:layout_editor_absoluteY="221dp" />
 </android.support.constraint.ConstraintLayout>
