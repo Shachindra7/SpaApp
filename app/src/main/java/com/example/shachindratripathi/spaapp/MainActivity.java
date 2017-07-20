@@ -65,10 +65,10 @@ public class MainActivity extends AppCompatActivity {
                 Category category = new Category();
                 JSONObject realObject = jsonArray.getJSONObject(i);
                 category.setCategory_id(realObject.getString("category_id"));
-                category.setCity_id(realObject.getString("category_id"));
-                category.setName(realObject.getString("category_id"));
-                category.setImage(realObject.getString("category_id"));
-                category.setEdate(realObject.getString("category_id"));
+                category.setCity_id(realObject.getString("city_id"));
+                category.setName(realObject.getString("name"));
+                category.setImage(realObject.getString("image"));
+                category.setEdate(realObject.getString("edate"));
                 categoryList.add(category);
             }
         } catch (JSONException e) {
