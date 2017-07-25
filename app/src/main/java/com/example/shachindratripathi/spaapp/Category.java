@@ -1,5 +1,9 @@
 package com.example.shachindratripathi.spaapp;
 
+import android.app.Service;
+
+import java.util.ArrayList;
+
 /**
  * Created by shachindratripathi on 19/7/17.
  */
@@ -14,8 +18,26 @@ public class Category
     private String description;
     private String duration;
     private String price;
+    private String statuscode;
+    private String message;
     private String edate;
+    private ArrayList<Service> serviceList;
 
+    public String getStatuscode() {
+        return statuscode;
+    }
+
+    public void setStatuscode(String statuscode) {
+        this.statuscode = statuscode;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
     public String getId() {
         return id;
@@ -89,10 +111,6 @@ public class Category
         this.edate = edate;
     }
 
-    public Category() {
 
-
-
-}
 }
 
