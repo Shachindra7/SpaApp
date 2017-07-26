@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Created by shachindratripathi on 19/7/17.
  */
 
-public class Category
+public class CategoryModel
 {
     private String category_id;
     private String city_id;
@@ -21,7 +21,15 @@ public class Category
     private String statuscode;
     private String message;
     private String edate;
-    private ArrayList<Service> serviceList;
+    private ArrayList<ServiceModel> serviceList;
+
+    public ArrayList<ServiceModel> getServiceList() {
+        return serviceList;
+    }
+
+    public void setServiceList(ArrayList<ServiceModel> serviceList) {
+        this.serviceList = serviceList;
+    }
 
     public String getStatuscode() {
         return statuscode;

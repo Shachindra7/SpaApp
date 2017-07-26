@@ -20,17 +20,17 @@ import static android.R.attr.resource;
  * Created by shachindratripathi on 19/7/17.
  */
 
-public class CategoryAdapter extends ArrayAdapter<Category> {
+public class CategoryAdapter extends ArrayAdapter<CategoryModel> {
 
 
 
-    ArrayList<Category> ArrayListCategory;
+    ArrayList<CategoryModel> ArrayListCategory;
     int Resource;
     Context context;
     LayoutInflater vi;
 
 
-    public CategoryAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull ArrayList<Category> objects) {
+    public CategoryAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull ArrayList<CategoryModel> objects) {
         super(context, resource, objects);
 
         ArrayListCategory = objects;

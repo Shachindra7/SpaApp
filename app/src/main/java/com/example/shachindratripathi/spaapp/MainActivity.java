@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     ListView list;
     CategoryAdapter adapter;
-    ArrayList<Category> categoryList;
+    ArrayList<CategoryModel> categoryList;
 
 
     @Override
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.json);
 
         MainActivity m = new MainActivity();
-        categoryList = new ArrayList<>();
+        categoryList = new ArrayList<CategoryModel>();
          ListView JSONListView  =  (ListView) findViewById(R.id.JSONListView);
         //readJson();
         parseJson();
@@ -91,16 +91,18 @@ public class MainActivity extends AppCompatActivity {
         return builder.toString();
     }
 
-    private ArrayList parseJson() {
+    private void parseJson() {
 
         StringBuilder builder = new StringBuilder();
         try {
             JSONObject jsonObject = new JSONObject(DummyJsonClass.DUMMY_JSON);
             JSONArray jsonArray = jsonObject.getJSONArray("data");
 
-            ArrayList<Category> dataModelList = new ArrayList<>();
+            ArrayList<CategoryModel> dataModelList = new ArrayList<>();
             for(int i = 0; i<= jsonArray.length(); i++){
-                Category category = new Category();
+
+                CategoryModel category = new CategoryModel();
+
                 JSONObject realObject = jsonArray.getJSONObject(i);
                 category.setCategory_id(realObject.getString("category_id"));
                 category.setCity_id(realObject.getString("city_id"));
@@ -110,9 +112,9 @@ public class MainActivity extends AppCompatActivity {
                 category.setStatuscode(realObject.getString("statuscode"));
                 category.setMessage(realObject.getString("message"));
 
-                List<ServiceModel> serviceList = new ArrayList<>();
-                for(int j=0;j<=jsonObject.getJSONArray("services").length();j++){
-                    JSONObject serviceObject = jsonObject.getJSONArray("services").getJSONObject(j);
+                ArrayList<ServiceModel> serviceList = new ArrayList<>();
+                for(int j=0;j<=realObject.getJSONArray("services").length();j++){
+                    JSONObject serviceObject = realObject.getJSONArray("services").getJSONObject(j);
                     ServiceModel services  = new ServiceModel();
                     services.setEdate(serviceObject.getString("edate"));
                     services.setId(serviceObject.getString("id"));
@@ -126,15 +128,17 @@ public class MainActivity extends AppCompatActivity {
                     serviceList.add(services);
 
                 }
-                categoryList.set(serviceList);
-                dataModelList.add(categoryList);
+                //category.add(serviceList);
+                category.setServiceList(serviceList);
+                dataModelList.add(category);
 
             }
-            return dataModelList;
+
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        CategoryAdapter adapter = new CategoryAdapter(getApplicationContext(),R.layout.category,categoryList);
+        //Adaptor code to be included.
         list.setAdapter(adapter);
     }
 }
