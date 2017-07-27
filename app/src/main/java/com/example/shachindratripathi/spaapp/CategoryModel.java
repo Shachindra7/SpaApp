@@ -2,6 +2,8 @@ package com.example.shachindratripathi.spaapp;
 
 import android.app.Service;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 
 /**
@@ -14,14 +16,18 @@ public class CategoryModel
     private String city_id;
     private String name;
     private String image;
-    private String id;
-    private String description;
-    private String duration;
-    private String price;
-    private String statuscode;
-    private String message;
     private String edate;
     private ArrayList<ServiceModel> serviceList;
+
+    public String getEdate() {
+        return edate;
+    }
+
+    public void setEdate(String edate) {
+        this.edate = edate;
+    }
+
+
 
     public ArrayList<ServiceModel> getServiceList() {
         return serviceList;
@@ -31,53 +37,6 @@ public class CategoryModel
         this.serviceList = serviceList;
     }
 
-    public String getStatuscode() {
-        return statuscode;
-    }
-
-    public void setStatuscode(String statuscode) {
-        this.statuscode = statuscode;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getDuration() {
-        return duration;
-    }
-
-    public void setDuration(String duration) {
-        this.duration = duration;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
 
     public String getCategory_id() {
         return category_id;
@@ -110,15 +69,5 @@ public class CategoryModel
     public void setImage(String image) {
         this.image = image;
     }
-
-    public String getEdate() {
-        return edate;
-    }
-
-    public void setEdate(String edate) {
-        this.edate = edate;
-    }
-
-
 }
 

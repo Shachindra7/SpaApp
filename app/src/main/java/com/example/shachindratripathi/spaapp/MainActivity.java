@@ -3,6 +3,7 @@ package com.example.shachindratripathi.spaapp;
 import android.app.Service;
 import android.content.res.AssetManager;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.json);
+        setContentView(R.layout.sub_category);
 
         MainActivity m = new MainActivity();
         categoryList = new ArrayList<CategoryModel>();
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         return text;
     }
 
+    @NonNull
     private String readJsonFromAssets(){
         BufferedReader reader = null;
         StringBuilder builder = new StringBuilder();
@@ -99,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
             JSONArray jsonArray = jsonObject.getJSONArray("data");
 
             ArrayList<CategoryModel> dataModelList = new ArrayList<>();
-            for(int i = 0; i<= jsonArray.length(); i++){
+            for(int i = 0; i<jsonArray.length(); i++){
 
                 CategoryModel category = new CategoryModel();
 
@@ -109,11 +111,14 @@ public class MainActivity extends AppCompatActivity {
                 category.setName(realObject.getString("name"));
                 category.setImage(realObject.getString("image"));
                 category.setEdate(realObject.getString("edate"));
-                category.setStatuscode(realObject.getString("statuscode"));
-                category.setMessage(realObject.getString("message"));
+                category.setServiceList(ArrayList<realObject>realObject.getString("services");
+
+              //  category.setServiceList( ArrayList <realObject>realObject.getString("services"));
+             //   category.setStatuscode(realObject.getString("statuscode"));
+            //    category.setMessage(realObject.getString("message"));
 
                 ArrayList<ServiceModel> serviceList = new ArrayList<>();
-                for(int j=0;j<=realObject.getJSONArray("services").length();j++){
+                for(int j=0;j<realObject.getJSONArray("services").length();j++){
                     JSONObject serviceObject = realObject.getJSONArray("services").getJSONObject(j);
                     ServiceModel services  = new ServiceModel();
                     services.setEdate(serviceObject.getString("edate"));
@@ -139,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         //Adaptor code to be included.
-        list.setAdapter(adapter);
+        //list.setAdapter(adapter);
     }
 }
 
