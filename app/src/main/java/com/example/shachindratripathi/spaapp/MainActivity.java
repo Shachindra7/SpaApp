@@ -6,6 +6,7 @@ import android.content.res.AssetManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -17,14 +18,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.List;
+
 
 
 public class MainActivity extends AppCompatActivity {
 
-    ListView list;
+
     CategoryAdapter adapter;
     ArrayList<CategoryModel> categoryList;
+
 
 
     @Override
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         MainActivity m = new MainActivity();
         categoryList = new ArrayList<CategoryModel>();
-         ListView JSONListView  =  (ListView) findViewById(R.id.JSONListView);
+
         //readJson();
         parseJson();
         //readJsonFromAssets();
@@ -42,25 +44,6 @@ public class MainActivity extends AppCompatActivity {
         //categoryList = new ArrayList<>();
 
     }
-    public String readJson() {
-        ListView JSONtextView = (ListView) findViewById(R.id.JSONListView);
-
-
-        AssetManager am = getAssets();
-        String text = "";
-        try {
-            InputStream is = getResources().openRawResource(R.raw.spa_dummy_data);
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            text = new String(buffer,"UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        return text;
-    }
-
     @NonNull
     private String readJsonFromAssets(){
         BufferedReader reader = null;
@@ -76,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
             while ((mLine = reader.readLine()) != null) {
                 //process line
                 builder.append(mLine);
-
             }
         } catch (IOException e) {
             //log the exception
@@ -98,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         StringBuilder builder = new StringBuilder();
         try {
             JSONObject jsonObject = new JSONObject(DummyJsonClass.DUMMY_JSON);
+
             JSONArray jsonArray = jsonObject.getJSONArray("data");
 
             ArrayList<CategoryModel> dataModelList = new ArrayList<>();
@@ -111,11 +94,6 @@ public class MainActivity extends AppCompatActivity {
                 category.setName(realObject.getString("name"));
                 category.setImage(realObject.getString("image"));
                 category.setEdate(realObject.getString("edate"));
-                category.setServiceList(ArrayList<realObject>realObject.getString("services");
-
-              //  category.setServiceList( ArrayList <realObject>realObject.getString("services"));
-             //   category.setStatuscode(realObject.getString("statuscode"));
-            //    category.setMessage(realObject.getString("message"));
 
                 ArrayList<ServiceModel> serviceList = new ArrayList<>();
                 for(int j=0;j<realObject.getJSONArray("services").length();j++){
@@ -131,11 +109,10 @@ public class MainActivity extends AppCompatActivity {
                     services.setPrice(serviceObject.getString("price"));
                     services.setImage(serviceObject.getString("image"));
                     serviceList.add(services);
-
                 }
-                //category.add(serviceList);
                 category.setServiceList(serviceList);
                 dataModelList.add(category);
+                Log.i("parsed Data",dataModelList.toString());
 
             }
 

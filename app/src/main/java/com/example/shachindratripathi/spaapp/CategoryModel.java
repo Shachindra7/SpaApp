@@ -22,13 +22,9 @@ public class CategoryModel
     public String getEdate() {
         return edate;
     }
-
     public void setEdate(String edate) {
         this.edate = edate;
     }
-
-
-
     public ArrayList<ServiceModel> getServiceList() {
         return serviceList;
     }
